@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradePro - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">TradePro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li id="profile-link" class="hidden"><a href="profile.html">Profile</a></li>
+                <li><a href="user-dashboard.html">Dashboard</a></li>
+                <li><a href="login.html" id="login-btn">Login</a></li>
+                <li><a href="#" id="logout-btn" class="hidden" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-details">
+            <h1>Your Profile</h1>
+            <h2>Active Plan: <span id="activePlan">Basic Plan</span></h2> <!-- This will update based on user's choice -->
+            <p>Here are your current trading signals and statistics.</p>
+            
+            <!-- Trade Signals Section -->
+            <div class="trade-signals-box">
+                <h3>Trade Signals</h3>
+                <ul id="trade-signals-list">
+                    <!-- Trade signals will be dynamically added here -->
+                </ul>
+            </div>
+            
+            <!-- Chart Section -->
+            <div class="chart-container">
+                <canvas id="profitLossChart" aria-label="Profit and Loss Chart" role="img"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TradePro. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const activePlan = localStorage.getItem('selectedPlan');
+
+            if (!isLoggedIn) {
+                alert('You need to log in to access this page.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            if (!activePlan) {
+                alert('You haven\'t purchased a plan yet. Please purchase a plan to access this page.');
+                window.location.href = 'index.html#plans-section';
+                return;
+            }
+
+            document.getElementById('activePlan').textContent = activePlan;
+
+            // Sample trade signals
+            const tradeSignals = [
+                'Buy EUR/USD at 1.1200',
+                'Sell GBP/USD at 1.3100',
+                'Buy Gold at 1800',
+                'Sell Oil at 70'
+            ];
+
+            const tradeSignalsList = document.getElementById('trade-signals-list');
+            tradeSignals.forEach(signal => {
+                const li = document.createElement('li');
+                li.textContent = signal;
+                tradeSignalsList.appendChild(li);
+            });
+
+            // Sample P&L data
+            const monthlyPnL = {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: 'Monthly P&L',
+                    data: [500, 700, -200, 300, 1000, 400, 600, 800, -100, 200, 900, 1200],
+                    borderColor: 'rgba(249, 195, 18, 1)',
+                    backgroundColor: 'rgba(249, 195, 18, 0.2)',
+                    borderWidth: 2
+                }]
+            };
+
+            const ctx = document.getElementById('profitLossChart')?.getContext('2d');
+            const profitLossChart = new Chart(ctx, {
+                type: 'line',
+                data: monthlyPnL,
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Show profile link if a plan is purchased
+            if (activePlan) {
+                document.getElementById('profile-link').classList.remove('hidden');
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('selectedPlan');
+            localStorage.removeItem('selectedPlanPrice');
+            localStorage.removeItem('selectedPlanDetails');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
