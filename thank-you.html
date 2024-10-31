@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradePro - Thank You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">TradePro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="user-dashboard.html">Dashboard</a></li>
+                <li><a href="login.html" id="login-btn">Login</a></li>
+                <li><a href="#" id="logout-btn" class="hidden" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="thank-you-section">
+            <h2>Thank You for Your Purchase!</h2>
+            <div class="thank-you-card">
+                <div class="thank-you__title">
+                    <i class="icon icon-check"></i>Purchase Details
+                </div>
+                <div class="thank-you__details">
+                    <p><strong>Plan:</strong> <span id="plan-name"></span></p>
+                    <p><strong>Price:</strong> <span id="plan-price"></span></p>
+                    <p><strong>Details:</strong></p>
+                    <ul id="plan-details"></ul>
+                </div>
+                <a href="index.html" class="btn">Back to Home</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TradePro. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const planName = localStorage.getItem('selectedPlan');
+            const planPrice = localStorage.getItem('selectedPlanPrice');
+            const planDetails = JSON.parse(localStorage.getItem('selectedPlanDetails'));
+
+            document.getElementById('plan-name').textContent = planName;
+            document.getElementById('plan-price').textContent = planPrice;
+            const detailsList = document.getElementById('plan-details');
+            planDetails.forEach(detail => {
+                const li = document.createElement('li');
+                li.textContent = detail;
+                detailsList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
