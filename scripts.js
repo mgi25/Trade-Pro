@@ -60,7 +60,7 @@ function login(event) {
     }
 }
 
-// Access control for plans
+// Access control for subscription plans
 function checkAccessToPlans(planPage) {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (!isLoggedIn) {
@@ -93,4 +93,72 @@ function checkLoginStatus() {
 // Initialize the login status check on page load
 document.addEventListener('DOMContentLoaded', function() {
     checkLoginStatus();
+});
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Thank you for contacting us!');
+});
+
+document.getElementById('payment-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Add client-side validation here
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const cardNumber = document.getElementById('card-number').value;
+    const expiryDate = document.getElementById('expiry-date').value;
+    const cvv = document.getElementById('cvv').value;
+
+    if (!name || !email || !cardNumber || !expiryDate || !cvv) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Add more validation as needed
+
+    alert('Payment submitted successfully!');
+});
+
+// new
+
+// profile 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const activePlan = localStorage.getItem('selectedPlan');
+
+    if (isLoggedIn && activePlan) {
+        document.getElementById('profile-link').classList.remove('hidden');
+        document.getElementById('logout-btn').classList.remove('hidden');
+        document.getElementById('login-btn').classList.add('hidden');
+    } else {
+        document.getElementById('profile-link').classList.add('hidden');
+        document.getElementById('logout-btn').classList.add('hidden');
+        document.getElementById('login-btn').classList.remove('hidden');
+    }
+});
+
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('selectedPlan');
+    localStorage.removeItem('selectedPlanPrice');
+    localStorage.removeItem('selectedPlanDetails');
+    window.location.href = 'index.html';
+}
+// Plan selection function
+function selectPlan(planName, planPrice, planDetails) {
+    localStorage.setItem('selectedPlan', planName);
+    localStorage.setItem('selectedPlanPrice', planPrice);
+    localStorage.setItem('selectedPlanDetails', planDetails);
+    alert(`You have selected the ${planName} plan.`);
+}
+
+// Example usage: Call this function when a user selects a plan
+document.querySelectorAll('.plan-select-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const planName = this.dataset.planName;
+        const planPrice = this.dataset.planPrice;
+        const planDetails = this.dataset.planDetails;
+        selectPlan(planName, planPrice, planDetails);
+    });
 });
