@@ -3,47 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Plan - TradePro</title>
+    <title>TradePro - Premium Plan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">TradePro Logo</div>
+            <div class="logo">TradePro</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#services-section">Services</a></li>
-                <li><a href="index.html#blogs-section">Blogs</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="user-dashboard.html">Dashboard</a></li>
                 <li><a href="login.html" id="login-btn">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="#" id="logout-btn" style="display: none;" onclick="logout()">Logout</a></li>
+                <li><a href="#" id="logout-btn" class="hidden" onclick="logout()">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="plans-main">
-        <h2>Premium Plan</h2>
-        <div class="plans-details">
-            <div class="plan-detail">
-                <h3>Premium Plan</h3>
-                <p class="price">Price: <span>$199/month</span></p>
-                <p>This plan is designed for experienced traders who want complete access to all features.</p>
+    <main>
+        <section class="plan-section">
+            <h2>Premium Plan</h2>
+            <div class="plan-details">
+                <p>This plan is designed for professional traders who need unlimited access to all features.</p>
                 <p>With this plan, you'll get:</p>
                 <ul>
-                    <li>Unlimited signals for all markets</li>
-                    <li>VIP support with a personal trading consultant</li>
-                    <li>Custom trade setups tailored to your strategy</li>
-                    <li>Exclusive market insights and news</li>
+                    <li>Unlimited trading signals</li>
+                    <li>Custom trade setups</li>
+                    <li>VIP support</li>
+                    <li>Access to all premium tools</li>
                 </ul>
-                <a href="#" class="cta-btn">Choose Premium Plan</a>
+                <a href="payment.html" class="cta-btn" onclick="selectPlan('Premium')">Choose Premium Plan</a>
             </div>
-        </div>
+            <a href="index.html#plans-section" class="back-to-plans">Back to Plans</a>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2024 TradePro. All Rights Reserved.</p>
     </footer>
+    <script>
+        // Save the selected plan to localStorage
+        function selectPlan(planName) {
+            localStorage.setItem('selectedPlan', planName);
+        }
+    </script>
 </body>
 </html>
