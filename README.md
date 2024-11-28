@@ -146,5 +146,5 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Contact
 For questions or collaboration opportunities, reach out to:
-- **Email**: support@tradepro.com
-- **GitHub**: [YourGitHubUsername](https://github.com/yourusername)
+- **Email**: alenjinmgi@gmail.com
+- **GitHub**: [mgi25](https://github.com/yourusername)
