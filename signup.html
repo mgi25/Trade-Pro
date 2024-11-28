@@ -6,7 +6,6 @@
     <title>Sign Up - TradePro</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,7 +24,12 @@
     <main class="auth-main">
         <div class="auth-container">
             <h2>Create Your Account</h2>
-            <form class="auth-form" onsubmit="signup(event)">
+            <!-- Display Error Message -->
+            <?php if (isset($_GET['error'])): ?>
+                <p style="color: red;"><?php echo htmlspecialchars($_GET['error']); ?></p>
+            <?php endif; ?>
+
+            <form action="signup.php" method="POST" class="auth-form">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
