@@ -136,9 +136,9 @@ TradePro/
       ![payment](https://github.com/user-attachments/assets/13de259d-b121-4eac-a934-56236b55da54)
    - Confirmation Page
      ![thankyou](https://github.com/user-attachments/assets/cfaa32a8-9c22-468e-bcab-0bf44c82d067)
-   -Backend Ima
+   -Backend Image
       ![backend](https://github.com/user-attachments/assets/0a423cdb-8719-4dc3-810b-6a1296e4e395)
-ge
+
       
 
 
