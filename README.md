@@ -112,6 +112,22 @@ TradePro/
    - Click the Logout link to terminate the session.
 
 ---
+## Screenshots
+   - Signup Page
+
+   - Login Page
+
+   - Index Page
+
+   - Blog Page
+
+   - Plan Page
+
+   - Payment Page
+
+   - Confirmation Page
+
+     
 
 ## Future Enhancements
 - **Payment Gateway Integration**: Add real payment processing via Stripe or PayPal.
