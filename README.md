@@ -114,20 +114,33 @@ TradePro/
 ---
 ## Screenshots
    - Signup Page
+      ![signup](https://github.com/user-attachments/assets/80156ed3-2307-4d76-8121-ec2c2526c683)
 
    - Login Page
+      ![login](https://github.com/user-attachments/assets/3a03ca5d-20c6-4ef1-b683-31e4ef595637)
 
    - Index Page
-
-   - Blog Page
-
+      ![index](https://github.com/user-attachments/assets/a4065704-ffc5-4d2e-8bf3-1e1d98f6d086)
+      ![index1](https://github.com/user-attachments/assets/07b24a67-8e45-4aea-bcc9-e669254059f2)
+      ![index2](https://github.com/user-attachments/assets/5ae616f0-e1c0-4d94-b5c1-7e510b21523f)
+      ![index3](https://github.com/user-attachments/assets/c2e1bfc8-113a-4569-97c5-3e3955225fc3)
+   - Blogs page
+      ![blog1](https://github.com/user-attachments/assets/9ed44caa-20f4-46f2-83eb-771786b86cc3)
+      ![blog3](https://github.com/user-attachments/assets/f443a46d-0795-4229-95da-fbee2577d51f)
+      ![blog2](https://github.com/user-attachments/assets/34ec3c8e-5895-451a-9fec-93cf8a1f374c)
    - Plan Page
-
+      ![basicplan](https://github.com/user-attachments/assets/b165da96-9ddc-4f87-864e-96701d36441d)
+      ![proplan](https://github.com/user-attachments/assets/ce510e48-c4d3-4d09-b7e8-77a3a1670ccf)
+      ![premiumplan](https://github.com/user-attachments/assets/24e86903-cf1f-46ab-a0b0-39fd84502bb9)
    - Payment Page
-
+      ![payment](https://github.com/user-attachments/assets/13de259d-b121-4eac-a934-56236b55da54)
    - Confirmation Page
+     ![thankyou](https://github.com/user-attachments/assets/cfaa32a8-9c22-468e-bcab-0bf44c82d067)
+   -Backend Ima
+      ![backend](https://github.com/user-attachments/assets/0a423cdb-8719-4dc3-810b-6a1296e4e395)
+ge
+      
 
-     
 
 ## Future Enhancements
 - **Payment Gateway Integration**: Add real payment processing via Stripe or PayPal.
